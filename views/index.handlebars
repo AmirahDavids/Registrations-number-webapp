@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Amirah | Registration Website</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Registration Numbers</h1>
+        <div class="space">
+            {{#if messages}}
+            <p id="message" class="{{col}}">{{messages.info}}</p>
+            {{/if}}
+        </div>
+
+        <form action="/registrations" method="post">
+            <div class="space">
+                <input name="reg" type="text" id="inputBox" class="small-input" maxlength="10">
+            </div>
+            <button id="addButton" type="submit">Add</button>
+        </form>
+        <form action="/clear" method="post">
+            <div class="space">
+                <button id="resetButton" type="submit">reset</button>
+            </div>
+        </form>
+
+        <form action="/filter" method="post">
+            <div class="space">
+                <label for="town">Filter by town:</label>
+                <select name="towns" id="town">
+                    <option value="">All</option>
+                    {{#each place}}
+                    <option value="{{this.id}}">{{this.name_of_place}}</option>
+                    {{/each}}
+                </select>
+                <button id="filterButton" type="submit">filter</button>
+            </div>
+
+        </form>
+
+        <div class="list-box">
+            <ul id="displayList" class="list-of-plates">
+                {{#each vehicle}}
+                <li>{{this.registration}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

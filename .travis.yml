@@ -1,0 +1,20 @@
+language: node_js
+
+env:
+  - DB=postgresql://postgres@localhost:5432/registration_db;
+
+node_js:
+  - "12"
+
+before_script: 
+  - psql -c 'create database registration_db;' -U postgres
+  - psql -U postgres -d registration_db -a -f reg.sql
+
+addons:
+  apt:
+    sources:
+    - precise-pgdg-9.5
+    packages:
+    - postgresql-9.5
+    - postgresql-contrib-9.5
+  postgresql: 9.5

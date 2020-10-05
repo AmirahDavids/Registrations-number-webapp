@@ -64,7 +64,7 @@ module.exports = function Factory(pool) {
     }
 
     async function getAllRegFromDatabase() {
-        var results = await pool.query("select registrations from vehicles");
+        var results = await pool.query("select registration from vehicles");
         return results.rows;
     }
 

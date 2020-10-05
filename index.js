@@ -92,7 +92,6 @@ app.post("/clear", async function (req, res) {
 });
 
 app.get("/reg_number/:reg", async function (req, res) {
-  console.log(req.params.reg);
   var registration = factory.formatPlate(req.params.reg);
   console.log(registration);
   res.render('index', {

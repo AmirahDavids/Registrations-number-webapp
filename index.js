@@ -12,6 +12,7 @@ const connectionString = process.env.DATABASE_URL || 'postgresql://amirah:coder1
 const pool = new Pool({
   connectionString
 });
+
 const Factory = require("./registration");
 const factory = Factory(pool);
 

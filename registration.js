@@ -11,22 +11,13 @@ module.exports = function Factory(pool) {
 
     function formatPlate(plate) {
 
-        var code = plate.split(" ")[0].toUpperCase();
-
-        var regNumber = plate.split(" ")[1].replace(/-/g, );
-
-        var formattedPlate = "";
-        var length = regNumber.length;
-
-        for (let i = 0; i < regNumber.length; i++) {
-            let character = regNumber[i];
-            if (length == 6 && i == 3) {
-                formattedPlate += "-";
-            }
-            formattedPlate += character;
+        var input = plate.split(" ");
+        var code = input[0].toUpperCase();
+        var regNumber = input[1].replace(/-/g, );
+        if (input.length == 3) {
+            regNumber += " "+input[2].replace(/-/g, );
         }
-
-        return code + " " + formattedPlate.toUpperCase();
+        return code + " " + regNumber.toUpperCase();
     }
 
     function validateReg(plate) {
@@ -39,7 +30,7 @@ module.exports = function Factory(pool) {
         return false
     }
 
-   async function filterByTown(loc) {
+    async function filterByTown(loc) {
 
 
         var regList = await getRegList();

@@ -7,14 +7,8 @@ node_js:
   - "12"
 
 before_script: 
-  - psql -c 'create database registration_db;' -U postgres
-  - psql -U postgres -d registration_db -a -f reg.sql
+  - psql -c 'create database registration_db_test;' -U postgres
+  - psql -U postgres -d registration_db_test -a -f reg.sql
 
 addons:
-  apt:
-    sources:
-    - precise-pgdg-9.5
-    packages:
-    - postgresql-9.5
-    - postgresql-contrib-9.5
-  postgresql: 9.5
+  - postgresql

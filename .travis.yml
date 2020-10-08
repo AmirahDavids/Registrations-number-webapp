@@ -1,7 +1,7 @@
 language: node_js
 
 env:
-  - DB=postgresql://postgres@localhost:5432/registration_db;
+  - DB=postgresql://postgres@localhost:5432/registration_db_test;
 
 node_js:
   - "12"

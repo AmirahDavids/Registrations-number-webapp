@@ -3,7 +3,7 @@ const Factory = require('../registration')
 const pg = require("pg");
 
 
-const connectionString = process.env.DATABASE_URL || 'postgresql://amirah:coder123@localhost:5432/registration_db_test';
+const connectionString = process.env.DATABASE_URL || 'postgresql://postgres@localhost:5432/registration_db_test';
 
 
 const Pool = pg.Pool;

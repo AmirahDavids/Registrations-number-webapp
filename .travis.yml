@@ -1,7 +1,7 @@
 language: node_js
 
 env:
-  - DB=postgresql://postgres@localhost:5432/registration_db_test;
+  - DATABASE_URL=postgresql://postgres@localhost:5432/registration_db_test;
 
 node_js:
   - "12"
@@ -10,5 +10,5 @@ before_script:
   - psql -c 'create database registration_db_test;' -U postgres
   - psql -U postgres -d registration_db_test -a -f reg.sql
 
-addons:
+services:
   - postgresql
